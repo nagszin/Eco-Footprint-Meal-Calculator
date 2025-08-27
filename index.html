@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eco-Footprint Meal Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function addRow() {
+            let container = document.getElementById("food-container");
+            let row = document.createElement("div");
+            row.className = "row";
+            row.innerHTML = `
+                <input type="text" name="food" placeholder="Food item" required>
+                <input type="number" step="0.1" name="co2" placeholder="CO₂ (kg)" required>
+                <input type="number" step="0.1" name="water" placeholder="Water (L)" required>
+            `;
+            container.appendChild(row);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Eco-Footprint Meal Calculator</h1>
+        <form action="/calculate" method="post">
+            <div id="food-container">
+                <div class="row">
+                    <input type="text" name="food" placeholder="Food item" required>
+                    <input type="number" step="0.1" name="co2" placeholder="CO₂ (kg)" required>
+                    <input type="number" step="0.1" name="water" placeholder="Water (L)" required>
+                </div>
+            </div>
+            <button type="button" onclick="addRow()">➕ Add Another Food</button><br><br>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+</body>
+</html>

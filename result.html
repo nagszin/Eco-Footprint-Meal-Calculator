@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eco-Footprint Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Meal Impact Report</h1>
+
+        {% if report %}
+        <ul>
+            {% for item in report %}
+            <li>{{ item.item }} → {{ item.co2 }} kg CO₂, {{ item.water }} L water</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Total:</h3>
+        <p>🌍 Carbon Footprint: <b>{{ total_co2 }} kg CO₂</b></p>
+        <p>💧 Water Usage: <b>{{ total_water }} L</b></p>
+        {% else %}
+        <p>No data entered.</p>
+        {% endif %}
+
+        <a href="/">🔙 Check another meal</a>
+    </div>
+</body>
+</html>
